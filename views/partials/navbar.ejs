@@ -5,6 +5,7 @@
 
   <div class="flex-none">
     <ul class="menu menu-horizontal px-1">
+      <!-- Common menu items for both screen sizes -->
       <li>
         <a class="<%= (page == '/lego/sets') ? 'active' : '' %>" href="/lego/sets">View Collection</a>
       </li>
@@ -45,13 +46,9 @@
   </div>
 
   <div class="navbar-center hidden sm:flex">
+    <!-- Menu items visible only on larger screens -->
     <ul class="menu menu-horizontal px-1">
-      <li>
-        <a class="<%= (page == '/lego/sets') ? 'active' : '' %>" href="/lego/sets">View Collection</a>
-      </li>
-      <li>
-        <a class="<%= (page == '/about') ? 'active' : '' %>" href="/about">About</a>
-      </li>
+      <!-- The "View Collection" and "About" links are already included above, so they don't need to be duplicated here -->
     </ul>
   </div>
 </div>
