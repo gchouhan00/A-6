@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lego Collection</title>
+  <link rel="stylesheet" href="/css/main.css" />
+
+</head>
+
+<body tabindex="-1" data-theme="luxury">
+
+  <%- include('partials/navbar', {page: '/lego/sets' }) %>
+
+    <div class="container mx-auto p-4">
+
+      <div class="hero min-h-screen bg-base-200">
+      <div class="hero-content text-center">
+          <div class="max-w-md">
+              <h1 class="text-5xl font-bold">Lego Collection</h1>
+              <p class="py-6">Explore the sets in our collection.</p>
+              <div class="py-4">
+                  <a href="/lego/sets?theme=technic" class="btn btn-primary m-2">Technic</a>
+                  <a href="/lego/sets?theme=classic%20Town" class="btn btn-primary m-2">Classic Town</a>
+                  <a href="/lego/sets?theme=supplemental" class="btn btn-primary m-2">Supplemental</a>
+                  
+              </div>
+          </div>
+      </div>
+  </div>
+      <br />
+
+      <div class="px-4 sm:px-6 lg:px-8 my-8">
+      <div class="overflow-x-auto overflow-y-hidden">
+        <table class="table table-zebra">
+          <!-- head -->
+          
+          <tbody>
+            <% sets.forEach(set=> { %>
+
+              <tr>
+
+                <td>
+               
+
+                <div class="avatar">
+                  <div class="w-32 h-32 rounded-lg bg-transparent bg-no-repeat bg-cover " style="background-image: url('<%= set.img_url %>');"></div>
+                </div>
+              </td>
+
+                <!-- <td><img src="<%= set.img_url %>" alt="preview" /></td> -->
+
+                <td>
+                  <%= set.name %> | <a href="/lego/sets?theme=<%= set.Theme.name %>" class="btn  mt-2 btn-xs"><%= set.Theme.name %></a>
+                </td>
+
+                <td><span class="font-bold">Year: </span> <%= set.year %> - <span class="font-bold">Parts:</span> <%= set.num_parts %></td>
+                <th>
+                  <a href="/lego/sets/<%= set.set_num %>" class="btn btn-xs">details</a>
+                </th>
+
+
+              </tr>
+
+              <% }); %>
+
+          </tbody>
+
+
+        </table>
+      </div>
+      </div>
+
+    </div>
+
+
+
+
+    <!-- <div class="container mx-auto p-4">
+
+    <div class="hero bg-base-200 rounded-lg p-6">
+      <div class="hero-content text-center ">
+        <div class="max-w-md">
+          <h1 class="text-5xl font-bold">About</h1>
+
+          <p class="py-6">Everything you want to know about me - the designer &amp; developer.</p>
+
+        </div>
+      </div>
+    </div>
+
+    <br />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <img class="w-full rounded-lg"
+          src="https://educationsnapshots.com/wp-content/uploads/sites/4/2022/01/seneca-college-newnham-campus-food-hall-3-700x467-compact.jpg"
+          alt="profile" />
+
+      </div>
+      <div class="prose">
+
+        <p>My name is John Smith and I'm currently studying at Seneca Polytechnic.</p>
+
+        <p>Donec sollicitudin molestie tortor, vel feugiat nulla maximus quis. Suspendisse ut sapien id mauris
+          sollicitudin commodo. Quisque semper, ligula et tincidunt dapibus, nisi ante fermentum lectus, nec molestie
+          sem eros vel neque. Duis sit amet ligula eu ligula consectetur blandit sed at mi. Sed ac odio aliquet,
+          vestibulum justo eget, volutpat eros. Mauris a dictum erat. Vivamus sodales egestas tempus. Duis pulvinar nibh
+          enim, vel gravida nunc egestas id. Duis magna ante, posuere id luctus id, mattis at ipsum. Nullam sit amet
+          magna et dui varius tristique ac id nisl. Pellentesque est dolor, luctus vitae dictum ut, hendrerit lacinia
+          lorem. Nullam a pharetra tortor.</p>
+
+      </div>
+
+    </div>
+
+  </div> -->
+</body>
+
+</html>

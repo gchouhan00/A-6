@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lego Collection</title>
+  <link rel="stylesheet" href="/css/main.css" />
+  <script>
+    document.addEventListener("DOMContentLoaded", async ()=>{
+
+        let res = await fetch("https://quotable.io/random");
+        let data = await res.json();
+
+        document.getElementById("quote").innerHTML = `"${data.content}"<br />- <em>${data.author}</em>`;
+    });
+  </script>
+
+</head>
+
+<body tabindex="-1" data-theme="luxury">
+
+  <%- include('partials/navbar', {page: ''}) %>
+
+  <div class="container mx-auto p-4">
+
+    <div class="hero bg-base-200 rounded-lg p-6">
+      <div class="hero-content text-center ">
+        <div class="max-w-md">
+          <h1 class="text-5xl font-bold"><%= set.name %></h1>
+
+          <p class="py-6">Below, you will find detailed information about the set: <%= set.name %></p>
+
+        </div>
+      </div>
+    </div>
+
+    <br />
+
+    <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <img class="w-full rounded-lg"
+          src="<%= set.img_url %>"
+          alt=" Set Image" />
+
+      </div>
+      <div class="prose">
+
+       <p>
+        <span class="font-bold">Set Name: </span> <%#= set.name %> <br />
+        <span class="font-bold">Year Released: </span> <%#= set.year %> <br />
+        <span class="font-bold">Theme: </span> <%#= set.theme %> <br />
+        <span class="font-bold">Number of Parts: </span> <%#= set.num_parts %> <br /><br />
+
+        <span id="quote"></span>
+        <br /><br />
+        <a class="btn btn-primary btn-sm" href="#" onclick="history.back(); return false;">RETURN</a>
+       </p>
+
+      </div>
+
+    </div> -->
+
+    <!-- Set Details Section -->
+    <div class="px-4 sm:px-6 lg:px-8 my-8">
+      <div class="bg-white shadow-md rounded-lg overflow-hidden border border-gray-200">
+          <div class="p-6">
+              <div class="flex items-center mb-4">
+                  <img src="<%= set.img_url %>" alt="<%= set.name %>" class="w-48 h-auto mr-4">
+                  <div>
+                      <p><strong>Name:</strong> <%= set.name %></p>
+                      <p><strong>Year:</strong> <%= set.year %></p>
+                      <p><strong>Theme:</strong> <%= set.Theme.name %></p>
+                      <p><strong>Number of Parts:</strong> <%= set.num_parts %></p>
+                  </div>
+              </div>
+              <div id="quote" class="mb-4"></div>
+              <% if (session.user) { %>
+                <a
+                  class="btn btn-success btn-sm"
+                  href="/lego/editSet/<%= set.set_num %>"
+                  >Edit: <%= set.name %></a
+                >
+              <% } %>
+              <a href="#" class="btn btn-primary" onclick="history.back(); return false;">Back</a>
+          </div>
+      </div>
+  </div>
+</body>
+
+</html>
