@@ -32,7 +32,7 @@ let User; // to be defined on new connection
 function initialize() {
     return new Promise((resolve, reject) => {
         // Changed to mongoose.connect for the main connection
-        mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+        mongoose.connect(process.env.mongoose, { useNewUrlParser: true, useUnifiedTopology: true })
             .then(() => {
                 User = mongoose.model("user", userSchema);
                 resolve();
