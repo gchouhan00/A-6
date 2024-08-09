@@ -26,7 +26,7 @@ function initialize(){
         });
         db.once("open", () => {
             User = db.model("user", userSchema);
-            resolve;
+            resolve();
         });
 
     });

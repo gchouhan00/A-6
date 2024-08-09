@@ -32,6 +32,7 @@ const Theme = sequelize.define('Theme', {
   },
   name: {
     type: Sequelize.STRING,
+    allowNull: false,
   }
 });
 
@@ -43,15 +44,19 @@ const Set = sequelize.define('Set', {
   },
   name: {
     type: Sequelize.STRING,
+    allowNull: false,
   },
   year: {
     type: Sequelize.INTEGER,
+    allowNull: false,
   },
   num_parts: {
     type: Sequelize.INTEGER,
+    allowNull: false,
   },
   theme_id: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.INTEGER
+   
   },
   img_url: {
     type: Sequelize.STRING
