@@ -168,7 +168,7 @@ app.post("/login", (req, res) => {
   authData.checkUser(req.body)
   .then((user) => {
     req.session.user = {
-      userName: userName,
+      userName: user.userName,
       email: user.email,
       loginHistory: user.loginHistory,
     };
@@ -180,7 +180,7 @@ app.post("/login", (req, res) => {
 });
 
 app.get("/logout", (req, res) => {
-  res.session.reset();
+  req.session.reset();
   res.redirect("/");
 });
 
